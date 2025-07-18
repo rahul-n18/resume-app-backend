@@ -22,11 +22,12 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow all for dev. Restrict in prod!
-    allow_credentials=True,
+    allow_origins=["*"],     # Allow all origins
+    allow_credentials=False, # Credentials must be off for wildcard origin
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 class JDResume(BaseModel):
     resume: str
